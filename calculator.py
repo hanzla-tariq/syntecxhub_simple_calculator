@@ -18,6 +18,9 @@ def main() :
     cont = True
     while cont:
         op = input("Enter operator(+, -, *, /, ^):")
+        if op not in ["+", "-", "*"," /", "^"]:
+            print("Error: Enter valid operator(+, -, *, /, ^)")
+            continue
         oper2 = float(input("Enter second number: "))
         if op == "+" :
            Result = add(oper1, oper2)
@@ -29,17 +32,14 @@ def main() :
            Result = mul(oper1, oper2)
            print("Result:", Result)
         elif op == "/" :
-           if oper2 == 0:
-               print("Error: Can't divide by zero:")
+            if oper2 == 0:
+               print("Error: Cannot divide by zero:")
                continue
-           Result = div(oper1, oper2)
-           print("Result:", Result)
+            Result = div(oper1, oper2)
+            print("Result:", Result)
         elif op == "^":
             Result = power(oper1, oper2)
             print("Result:", Result)
-        else:
-            print("Invalid operator")
-            continue
         while True:
             res = input("Do you want to continue(y,n) or clear(c): ").lower()
             if res == "y":
